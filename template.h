@@ -4,7 +4,7 @@
 using namespace std;
 
 #define fast                                                                   \
-    ios::sync_with_stdio(false);                                               \
-    cin.tie(NULL);
+  ios::sync_with_stdio(false);                                                 \
+  cin.tie(NULL);
 
 #endif // "TEMPLATE_H"
