@@ -62,7 +62,7 @@ private:
   }
 };
 
-int main() {
+int main(void) {
   fast;
 
   LRUCache lRUCache(2);

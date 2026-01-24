@@ -63,7 +63,7 @@ void printList(ListNode *head) {
   cout << "\n";
 }
 
-int main() {
+int main(void) {
   fast;
 
   vector<int> v1 = {2, 4, 3};
