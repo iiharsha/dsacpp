@@ -2,4 +2,4 @@
 
 set -xe
 
-g++ -std=gnu++17 -Wall -Wextra "$1" && ./a.out
+g++ -std=gnu++17 -Wall -Wextra -g -O0 "$1" -o solution && ./solution
