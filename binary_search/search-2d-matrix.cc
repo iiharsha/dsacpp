@@ -1,6 +1,7 @@
 #include "../template.h"
 
-class Solution {
+class Solution
+{
 public:
   /**
    * You are given an m x n integer matrix matrix with the following two
@@ -15,24 +16,30 @@ public:
    *
    * You must write a solution in O(log(m * n)) time complexity.
    */
-  bool searchMatrix(vector<vector<int>> &matrix, int target) {
+  bool searchMatrix(vector<vector<int>> &matrix, int target)
+  {
     int rows = matrix.size();
     int cols = matrix[0].size();
     int left = 0, right = rows * cols - 1;
-    while (left <= right) {
+    while (left <= right)
+    {
 
       int mid = left + (right - left) / 2;
       int row = mid / cols;
       int col = mid % cols;
       int curr = matrix[row][col];
 
-      if (curr == target) {
+      if (curr == target)
+      {
         return true;
       }
 
-      if (curr < target) {
+      if (curr < target)
+      {
         left = mid + 1;
-      } else {
+      }
+      else
+      {
         right = mid - 1;
       }
     }
@@ -40,7 +47,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;
@@ -49,9 +57,12 @@ int main(void) {
       {1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
   int target = 3;
   bool res = sol.searchMatrix(matrix, target);
-  if (res) {
+  if (res)
+  {
     cout << "true" << endl;
-  } else {
+  }
+  else
+  {
     cout << "false" << endl;
   }
 }
