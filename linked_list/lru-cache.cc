@@ -8,7 +8,8 @@
  *
  * Solution uses List and HashMap
  */
-class LRUCache {
+class LRUCache
+{
 
 public:
   LRUCache(int capacity) : capacity_(capacity) {};
@@ -16,8 +17,10 @@ public:
   /**
    * returns the value of key if the key exists, otherwise returns -1
    */
-  int get(int key) {
-    if (!map_.count(key)) {
+  int get(int key)
+  {
+    if (!map_.count(key))
+    {
       return -1;
     }
 
@@ -32,12 +35,15 @@ public:
    * If the number of keys exceeds the capacity from this operation,
    * evict the least recently used key.
    */
-  void put(int key, int value) {
-    if (capacity_ <= 0) {
+  void put(int key, int value)
+  {
+    if (capacity_ <= 0)
+    {
       return;
     }
     if (!map_.count(key) &&
-        list_.size() == static_cast<unsigned long>(capacity_)) {
+        list_.size() == static_cast<unsigned long>(capacity_))
+    {
       auto del = list_.back();
       list_.pop_back();
       map_.erase(del.first);
@@ -50,9 +56,11 @@ private:
   list<pair<int, int>> list_; //[[key:value], [key:value]
   unordered_map<int, list<pair<int, int>>::iterator> map_;
 
-  void update(int key, int value) {
+  void update(int key, int value)
+  {
     auto it = map_.find(key);
-    if (it != map_.end()) {
+    if (it != map_.end())
+    {
       // erase the [key:value]
       list_.erase(it->second);
     }
@@ -62,7 +70,8 @@ private:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   LRUCache lRUCache(2);

@@ -1,34 +1,43 @@
 #include "../template.h"
 
-class Solution {
+class Solution
+{
 public:
-  bool checkInclusion(string s1, string s2) {
-    if (s1.size() > s2.size()) {
+  bool checkInclusion(string s1, string s2)
+  {
+    if (s1.size() > s2.size())
+    {
       return false;
     }
 
     vector<int> freq(26, 0);
-    for (char c : s1) {
+    for (char c : s1)
+    {
       freq[c - 'a']++;
     }
 
     int count = s1.size();
     int l = 0, r = 0;
 
-    while (r < s2.size()) {
-      if (freq[s2[r] - 'a'] > 0) {
+    while (r < s2.size())
+    {
+      if (freq[s2[r] - 'a'] > 0)
+      {
         count--;
       }
 
       freq[s2[r] - 'a']--;
       r++;
 
-      while (count == 0) {
-        if (r - l == s1.size()) {
+      while (count == 0)
+      {
+        if (r - l == s1.size())
+        {
           return true;
         }
 
-        if (freq[s2[l] - 'a'] == 0) {
+        if (freq[s2[l] - 'a'] == 0)
+        {
           count++;
         }
         freq[s2[l] - 'a']++;
@@ -40,15 +49,20 @@ public:
   }
 };
 
-void printAnswer(bool result) {
-  if (result) {
+void printAnswer(bool result)
+{
+  if (result)
+  {
     cout << "true\n";
-  } else {
+  }
+  else
+  {
     cout << "false\n";
   }
 }
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;

@@ -7,19 +7,23 @@
   array nums and using only constant extra space.
 */
 
-class Solution {
+class Solution
+{
 public:
-  int findDuplicate(const vector<int> &nums) {
+  int findDuplicate(const vector<int> &nums)
+  {
     int slowptr = nums[0];
     int fastptr = nums[nums[0]];
 
-    while (slowptr != fastptr) {
+    while (slowptr != fastptr)
+    {
       slowptr = nums[slowptr];
       fastptr = nums[nums[fastptr]];
     }
 
     fastptr = 0;
-    while (slowptr != fastptr) {
+    while (slowptr != fastptr)
+    {
       slowptr = nums[slowptr];
       fastptr = nums[fastptr];
     }
@@ -27,7 +31,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
   Solution sol;
 

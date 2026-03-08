@@ -1,10 +1,13 @@
 #include "../template.h"
 
-class Solution {
+class Solution
+{
 private:
-  void printPermutation(const vector<int> &nums) {
+  void printPermutation(const vector<int> &nums)
+  {
     cout << '[';
-    for (int val : nums) {
+    for (int val : nums)
+    {
       cout << val;
     }
     cout << "]\n";
@@ -34,25 +37,31 @@ public:
    *
    * The replacement must be in place and use only constant extra memory
    */
-  void nextPermutation(vector<int> &nums) {
+  void nextPermutation(vector<int> &nums)
+  {
     int n = nums.size();
     int index = -1;
 
-    for (int i = n - 2; i >= 0; --i) {
-      if (nums[i] < nums[i + 1]) {
+    for (int i = n - 2; i >= 0; --i)
+    {
+      if (nums[i] < nums[i + 1])
+      {
         index = i;
         break;
       }
     }
 
-    if (index == -1) {
+    if (index == -1)
+    {
       reverse(nums.begin(), nums.end());
       printPermutation(nums);
       return;
     }
 
-    for (int i = n - 1; i >= 0; --i) {
-      if (nums[i] > nums[index]) {
+    for (int i = n - 1; i >= 0; --i)
+    {
+      if (nums[i] > nums[index])
+      {
         swap(nums[i], nums[index]);
         break;
       }
@@ -64,7 +73,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;

@@ -1,6 +1,7 @@
 #include "../template.h"
 
-class Solution {
+class Solution
+{
 public:
   /**
    * Problem Statemet:
@@ -9,10 +10,14 @@ public:
    *
    * A subarray is a contiguous non-empty sequence of elements within an array.
    */
-  int maxSubArray(vector<int> &nums) { return 69; }
+  int maxSubArray(vector<int> &nums)
+  {
+    return 69;
+  }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;

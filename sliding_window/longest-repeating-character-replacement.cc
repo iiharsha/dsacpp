@@ -4,21 +4,25 @@
  * - create hashmap for char counts ch->count
  *   sliding window solution
  */
-class Solution {
+class Solution
+{
 public:
-  int characterReplacement(string s, int k) {
+  int characterReplacement(string s, int k)
+  {
     int n = s.length();
     int maxCount = 0, left = 0, result = 0;
 
     unordered_map<char, int> charCount;
 
-    for (int right = 0; right < n; ++right) {
+    for (int right = 0; right < n; ++right)
+    {
       char rChar = s[right];
       char lChar = s[left];
       charCount[rChar]++;
       maxCount = max(maxCount, charCount[rChar]);
 
-      while ((right - left + 1) - maxCount > k) {
+      while ((right - left + 1) - maxCount > k)
+      {
         charCount[lChar]--;
         left++;
       }
@@ -29,7 +33,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;

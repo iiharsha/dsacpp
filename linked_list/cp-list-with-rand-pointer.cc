@@ -1,22 +1,27 @@
 #include "../template.h"
 
-class Node {
+class Node
+{
 public:
   int val;
   Node *next;
   Node *random;
 
-  Node(int _val) {
+  Node(int _val)
+  {
     val = _val;
     next = NULL;
     random = NULL;
   }
 };
 
-class Solution {
+class Solution
+{
 public:
-  Node *copyRandomList(Node *head) {
-    if (head == NULL) {
+  Node *copyRandomList(Node *head)
+  {
+    if (head == NULL)
+    {
       return NULL;
     }
 
@@ -27,7 +32,8 @@ public:
     Node *newTemp = newHead;
     map[head] = newHead;
 
-    while (oldTemp != NULL) {
+    while (oldTemp != NULL)
+    {
       Node *copyNode = new Node(oldTemp->val);
 
       map[oldTemp] = copyNode;
@@ -40,7 +46,8 @@ public:
 
     oldTemp = head;
     newTemp = newHead;
-    while (oldTemp != NULL) {
+    while (oldTemp != NULL)
+    {
       newTemp->random = map[oldTemp->random];
       oldTemp = oldTemp->next;
       newTemp = newTemp->next;
@@ -50,14 +57,19 @@ public:
   }
 };
 
-void printList(Node *head) {
+void printList(Node *head)
+{
   Node *temp = head;
-  while (temp != NULL) {
+  while (temp != NULL)
+  {
     cout << "Val: " << temp->val << ", Random: ";
 
-    if (temp->random) {
+    if (temp->random)
+    {
       cout << temp->random->val;
-    } else {
+    }
+    else
+    {
       cout << "NULL";
     }
 
@@ -67,7 +79,8 @@ void printList(Node *head) {
   cout << "---\n";
 }
 
-int main(void) {
+int main(void)
+{
   fast;
 
   // Create Nodes

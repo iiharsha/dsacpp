@@ -1,19 +1,24 @@
 #include "../template.h"
 
-class Solution {
+class Solution
+{
 public:
-  vector<vector<string>> groupAnagrams(vector<string> &strs) {
+  vector<vector<string>> groupAnagrams(vector<string> &strs)
+  {
     unordered_map<string, vector<string>> groups;
-    for (const auto &str : strs) {
+    for (const auto &str : strs)
+    {
       string temp{str};
       sort(temp.begin(), temp.end());
       groups[temp].emplace_back(str);
     }
 
     vector<vector<string>> anagrams;
-    for (const auto &kvp : groups) {
+    for (const auto &kvp : groups)
+    {
       vector<string> group;
-      for (const auto &str : kvp.second) {
+      for (const auto &str : kvp.second)
+      {
         group.emplace_back(str);
       }
       // sort(group.begin(), group.end());
@@ -24,7 +29,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   vector<string> strs{"eat", "tea", "tan", "ate", "nat", "bat"};
@@ -32,9 +38,11 @@ int main(void) {
   auto res = sol.groupAnagrams(strs);
 
   cout << "[";
-  for (const auto group : res) {
+  for (const auto group : res)
+  {
     cout << "[";
-    for (const auto strs : group) {
+    for (const auto strs : group)
+    {
       cout << strs;
     }
     cout << "]";

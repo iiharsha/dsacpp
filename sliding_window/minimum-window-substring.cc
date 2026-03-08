@@ -1,6 +1,7 @@
 #include "../template.h"
 
-class Solution {
+class Solution
+{
 public:
   /*
    * Given two strings s and t, return the minimum window substring
@@ -9,13 +10,15 @@ public:
    *
    * Returns empty string if no such window exists.
    */
-  string minWindow(string &s, string &t) {
+  string minWindow(string &s, string &t)
+  {
     unordered_map<char, int> win_freq; // current window freq map
     int min_len = INT_MAX;
     int start_index = 0;
 
     unordered_map<char, int> t_freq; // target freq map
-    for (char c : t) {
+    for (char c : t)
+    {
       t_freq[c]++;
     }
 
@@ -24,16 +27,20 @@ public:
 
     int formed = 0; // to track how many unique characters match in the window
 
-    while (right < s.size()) {
+    while (right < s.size())
+    {
       char c = s[right];
       win_freq[c]++;
 
-      if (t_freq.count(c) && win_freq[c] == t_freq[c]) {
+      if (t_freq.count(c) && win_freq[c] == t_freq[c])
+      {
         formed++;
       }
 
-      while (left <= right && formed == required) {
-        if ((right - left + 1) < min_len) {
+      while (left <= right && formed == required)
+      {
+        if ((right - left + 1) < min_len)
+        {
           min_len = right - left + 1;
           start_index = left;
         }
@@ -41,7 +48,8 @@ public:
         char leftChar = s[left];
         win_freq[leftChar]--;
 
-        if (t_freq.count(leftChar) && win_freq[leftChar] < t_freq[leftChar]) {
+        if (t_freq.count(leftChar) && win_freq[leftChar] < t_freq[leftChar])
+        {
           formed--;
         }
 
@@ -55,7 +63,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;

@@ -5,13 +5,17 @@
  * invalid -> "abcabc"
  * valid -> "abc"
  */
-class Solution {
+class Solution
+{
 public:
-  int lengthOfLongestSubstring(string s) {
+  int lengthOfLongestSubstring(string s)
+  {
     int maxLen = 0;
     unordered_map<char, int> lookup;
-    for (int left = 0, right = 0; right < s.size(); ++right) {
-      if (lookup.count(s[right])) {
+    for (int left = 0, right = 0; right < s.size(); ++right)
+    {
+      if (lookup.count(s[right]))
+      {
         left = max(left, lookup[s[right]] + 1);
       }
       lookup[s[right]] = right;
@@ -21,7 +25,8 @@ public:
   }
 };
 
-int main(void) {
+int main(void)
+{
   fast;
 
   Solution sol;
