@@ -4,6 +4,7 @@ class Solution
 {
 public:
   /*
+   * PROBLEM STATEMENT
    * Given an integer numRows, return the first numRows of Pascal's triangle.
    * In Pascal's triangle, each number is the sum of the two numbers directly
    * above it as shown:
@@ -28,23 +29,8 @@ public:
       triangle.push_back(row);
     }
 
-    printResult(triangle);
+    debug::printVector2D(triangle);
     return triangle;
-  }
-
-private:
-  void printResult(const vector<vector<int>> &triangle) const
-  {
-    for (const auto &row : triangle)
-    {
-      cout << '[';
-      for (int val : row)
-      {
-        cout << val << ",";
-      }
-      cout << ']';
-    }
-    cout << '\n';
   }
 };
 

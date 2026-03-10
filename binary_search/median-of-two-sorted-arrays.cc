@@ -12,64 +12,44 @@ public:
    */
   double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
   {
+    if (nums1.size() > nums2.size())
+      return findMedianSortedArrays(nums2, nums1);
 
     int n1 = nums1.size();
     int n2 = nums2.size();
-    int n = n1 + n2;
+    int low = 0, high = n1;
 
-    int index2 = n / 2;
-    int index1 = index2 - 1;
-
-    int count = 0, i = 0, j = 0;
-    int index1el = -1, index2el = -1;
-
-    while (i < n1 && j < n2)
+    while (low <= high)
     {
-      if (nums1[i] < nums2[j])
-      {
-        if (count == index1)
-          index1el = nums1[i];
+      int cut1 = low + (high - low) / 2;
+      int cut2 = (n1 + n2 + 1) / 2 - cut1;
 
-        if (count == index2)
-          index2el = nums1[i];
-        i++;
+      int l1 = (cut1 == 0) ? INT_MIN : nums1[cut1 - 1];
+      int l2 = (cut2 == 0) ? INT_MIN : nums2[cut2 - 1];
+      int r1 = (cut1 == n1) ? INT_MAX : nums1[cut1];
+      int r2 = (cut2 == n2) ? INT_MAX : nums2[cut2];
+
+      if (l1 <= r2 && l2 <= r1)
+      {
+        if ((n1 + n2) % 2 == 0)
+        {
+          return (max(l1, l2) + min(r1, r2)) / 2.0;
+        }
+        else
+        {
+          return max(l1, l2);
+        }
+      }
+      else if (l1 > l2)
+      {
+        high = cut1 - 1;
       }
       else
       {
-        if (count == index1)
-          index1el = nums2[j];
-
-        if (count == index2)
-          index2el = nums2[j];
-        j++;
+        low = cut1 + 1;
       }
-      count++;
     }
-
-    while (i < n1)
-    {
-      if (count == index1)
-        index1el = nums1[i];
-      if (count == index2)
-        index2el = nums1[i];
-      count++;
-      i++;
-    }
-
-    while (j < n2)
-    {
-      if (count == index1)
-        index1el = nums2[j];
-      if (count == index2)
-        index2el = nums2[j];
-      count++;
-      j++;
-    }
-
-    if (n % 2 == 1)
-      return (double)index2el;
-
-    return (double)(index1el + index2el) / 2.0;
+    return 0.0;
   }
 };
 
